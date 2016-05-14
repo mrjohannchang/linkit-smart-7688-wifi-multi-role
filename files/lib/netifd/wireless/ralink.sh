@@ -157,6 +157,7 @@ drv_ralink_setup() {
 	EXTCHA=0
 
 	sta_disabled="$(uci get wireless.sta.disabled)"
+	sta_disabled=1
 
 	[ "${sta_disabled}" = "1" ] && bcn_active=1
 
@@ -236,6 +237,7 @@ EOF
 	wireless_set_up
 	LED="$(uci get wireless.sta.led)"
 	sta_disabled="$(uci get wireless.sta.disabled)"
+	sta_disabled=1
 	[ "${sta_disabled}" = "1" -a -n "${LED}" -a -f /sys/class/leds/${LED}/trigger ] && ap_client ${LED} set
 }
 
