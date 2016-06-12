@@ -10,7 +10,13 @@ This the the doc for enabling both Wi-Fi access point and station mode simultane
 
 3. SSH login to 7688's shell.
 
-4. Execute the following commands:
+4. Make sure the downloaded file is executable by executing:
+
+    ```
+    chmod +x /lib/netifd/wireless/ralink.sh
+    ```
+
+5. Execute the following commands:
 
     a. Replace `<SSID>` with the Wi-Fi router's name which you want to connect to.
 
@@ -24,10 +30,10 @@ This the the doc for enabling both Wi-Fi access point and station mode simultane
     uci set wireless.sta.key="<KEY>"
     ```
 
-    c. Replace `<SECURITY_PROTOCOL>` with `psk2` if the Wi-Fi router you want to connect to is using WPA2PSK, `psk` if it's WPAPSK.
+    c. Set encryption type to WPA-PSK.
 
     ```
-    uci set wireless.sta.encryption="<SECURITY_PROTOCOL>"
+    uci set wireless.sta.encryption="psk"
     ```
 
     d. Enable Wi-Fi station mode.
