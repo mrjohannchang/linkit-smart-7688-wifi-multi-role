@@ -4,13 +4,13 @@ This is a doc for enabling both Wi-Fi access point and station mode simultaneous
 
 ## Usage
 
-1. Factory reset or configure 7688's Wi-Fi to AP mode.
+1. Do a factory reset or configure 7688's Wi-Fi to AP mode.
 
-2. Download [ralink.sh](https://raw.githubusercontent.com/changyuheng/linkit-smart-7688-wifi-multi-role/master/files/lib/netifd/wireless/ralink.sh) to 7688 and replace the built-in file `/lib/netifd/wireless/ralink.sh`.
+2. Download [ralink.sh](https://raw.githubusercontent.com/changyuheng/linkit-smart-7688-wifi-multi-role/master/files/lib/netifd/wireless/ralink.sh) to 7688 board and replace the built-in file `/lib/netifd/wireless/ralink.sh`.
 
-3. SSH login to 7688's shell.
+3. SSH log into 7688's shell.
 
-4. Make sure the downloaded file is executable by executing:
+4. Make the downloaded file executable by executing:
 
     ```
     chmod +x /lib/netifd/wireless/ralink.sh
@@ -18,13 +18,13 @@ This is a doc for enabling both Wi-Fi access point and station mode simultaneous
 
 5. Execute the following commands:
 
-    a. Replace `<SSID>` with the Wi-Fi router's name which you want to connect to.
+    a. Replace `<SSID>` with the SSID on the Wi-Fi router you want to connect to.
 
     ```
     uci set wireless.sta.ssid="<SSID>"
     ```
 
-    b. Replace `<KEY>` with the password of the above Wi-Fi router's password.
+    b. Replace `<KEY>` with the corresponding password of the above SSID.
 
     ```
     uci set wireless.sta.key="<KEY>"
@@ -42,13 +42,13 @@ This is a doc for enabling both Wi-Fi access point and station mode simultaneous
     uci set wireless.sta.disabled="0"
     ```
 
-    e. Apply the configs.
+    e. Apply the modified config.
 
     ```
-    uci commit
+    uci commit wireless
     ```
 
-    f. Reload Wi-Fi settings, make the changes take effect.
+    f. Reload Wi-Fi settings, make the change take effect.
 
     ```
     wifi
